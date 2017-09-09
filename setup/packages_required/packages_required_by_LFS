@@ -1,3 +1,0 @@
-#!/bin/sh
-
-yum install bash && yum install vim && yum install sed && yum install ncurses && yum install bc && yum install binutils && yum install coreutils && yum install diffutils && yum install findutils && yum install file && yum install gawk && yum install gzip && yum install man-db && yum install m4 && yum install procps && yum install psmisc && yum install grep
