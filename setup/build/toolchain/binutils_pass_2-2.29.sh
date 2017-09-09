@@ -18,14 +18,14 @@ setup(){
 }
 
 build(){
-	CC=$LFS_TGT-gcc					\
-		AR=$LFS_TGT-ar				\
-		RANLIB=$LFS_TGT-ranlib		\
-		../configure				\
-		--prefix=/tools				\
-		--disable-nls				\
-		--disable-werror			\
-		--with-lib-path=/tools/lib	\
+	CC=$LFS_TGT-gcc                \
+	AR=$LFS_TGT-ar                 \
+	RANLIB=$LFS_TGT-ranlib         \
+	../configure                   \
+	    --prefix=/tools            \
+	    --disable-nls              \
+	    --disable-werror           \
+	    --with-lib-path=/tools/lib \
 		--with-sysroot					|| return
 	make								|| return
 	make install						|| return

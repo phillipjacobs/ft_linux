@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pkg_source="gcc-5.3.0.tar.xz"
+pkg_source="gcc-7.2.0.tar.xz"
 
 pkg_name="$(basename $(tar -tf $1/$pkg_source | head -n 1 | cut -d'/' -f 1))"
 
@@ -13,8 +13,10 @@ setup(){
 	cd $base_dir					|| return
 	tar -xf $pkg_source				|| return
 	cd $pkg_name					|| return
+
 	cat gcc/limitx.h gcc/glimits.h gcc/limity.h	\
 		> `dirname $($LFS_TGT-gcc -print-libgcc-file-name)`/include-fixed/limits.h	|| return
+	
 	for file in $(find gcc/config -name linux64.h -o -name linux.h -o -name sysv4.h)
 	do
 		cp -uv $file{,.orig}							|| return
@@ -28,10 +30,17 @@ setup(){
 		touch $file.orig								|| return
 	done
 
-	tar -xf ../mpfr-3.1.3.tar.xz						|| return
-	mv -v mpfr-3.1.3 mpfr								|| return
-	tar -xf ../gmp-6.1.0.tar.xz							|| return
-	mv -v gmp-6.1.0 gmp									|| return
+	case $(uname -m) in
+		x86_64)
+			sed -e '/m64=/s/lib64/lib/' \
+				-i.orig gcc/config/i386/t-linux64
+		;;
+	esac
+
+	tar -xf ../mpfr-3.1.5.tar.xz						|| return
+	mv -v mpfr-3.1.5 mpfr								|| return
+	tar -xf ../gmp-6.1.2.tar.xz							|| return
+	mv -v gmp-6.1.2 gmp									|| return
 	tar -xf ../mpc-1.0.3.tar.gz							|| return
 	mv -v mpc-1.0.3 mpc									|| return
 
@@ -40,18 +49,18 @@ setup(){
 }
 
 build(){
-	CC=$LFS_TGT-gcc										\
-		CXX=$LFS_TGT-g++								\
-		AR=$LFS_TGT-ar									\
-		RANLIB=$LFS_TGT-ranlib							\
-		../configure									\
-		--prefix=/tools									\
-		--with-local-prefix=/tools						\
-		--with-native-system-header-dir=/tools/include	\
-		--enable-languages=c,c++						\
-		--disable-libstdcxx-pch							\
-		--disable-multilib								\
-		--disable-bootstrap								\
+	CC=$LFS_TGT-gcc                                    \
+	CXX=$LFS_TGT-g++                                   \
+	AR=$LFS_TGT-ar                                     \
+	RANLIB=$LFS_TGT-ranlib                             \
+	../configure                                       \
+		--prefix=/tools                                \
+		--with-local-prefix=/tools                     \
+		--with-native-system-header-dir=/tools/include \
+		--enable-languages=c,c++                       \
+		--disable-libstdcxx-pch                        \
+		--disable-multilib                             \
+		--disable-bootstrap                            \
 		--disable-libgomp								|| return
 	make												|| return
 	make install										|| return

@@ -7,7 +7,6 @@ pkg_name="$(basename $(tar -tf $1/$pkg_source | head -n 1 | cut -d'/' -f 1))"
 base_dir=$1
 log_file=$2"/"$(echo $pkg_name)".log"
 
-printf "\nBase Dir = "$base_dir
 
 status=0
 
