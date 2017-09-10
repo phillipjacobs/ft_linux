@@ -9,12 +9,10 @@ sudo ln -sf bison /usr/bin/yacc
 -------------------------------------------
 --> Mounting the New Partitions
 - ROOT
-mkdir -pv $LFS
-mount -v -t ext4 /dev/sdb2 $LFS
+mkdir -pv $LFS && mount -v -t ext4 /dev/sdb2 $LFS
 
 -BOOT
-mkdir -pv $LFS/boot
-mount -v -t ext4 /dev/sdb1 $LFS/boot
+mkdir -pv $LFS/boot && mount -v -t ext4 /dev/sdb1 $LFS/boot
 
 -SWAP
 /sbin/swapon -v /dev/sdb3
