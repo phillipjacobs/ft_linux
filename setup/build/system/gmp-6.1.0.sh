@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pkg_source="gmp-6.1.0.tar.xz"
+pkg_source="gmp-6.1.2.tar.xz"
 
 pkg_name="$(basename $(tar -tf $1/$pkg_source | head -n 1 | cut -d'/' -f 1))"
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pkg_source="psmisc-22.21.tar.gz"
+pkg_source="psmisc-23.1.tar.xz"
 
 pkg_name="$(basename $(tar -tf $1/$pkg_source | head -n 1 | cut -d'/' -f 1))"
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pkg_source="gdbm-1.11.tar.gz"
+pkg_source="gdbm-1.13.tar.gz"
 
 pkg_name="$(basename $(tar -tf $1/$pkg_source | head -n 1 | cut -d'/' -f 1))"
 

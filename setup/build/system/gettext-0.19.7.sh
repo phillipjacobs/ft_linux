@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pkg_source="gettext-0.19.7.tar.xz"
+pkg_source="gettext-0.19.8.1.tar.xz"
 
 pkg_name="$(basename $(tar -tf $1/$pkg_source | head -n 1 | cut -d'/' -f 1))"
 

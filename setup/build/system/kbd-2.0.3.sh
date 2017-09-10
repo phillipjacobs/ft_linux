@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pkg_source="kbd-2.0.3.tar.xz"
+pkg_source="kbd-2.0.4.tar.xz"
 
 pkg_name="$(basename $(tar -tf $1/$pkg_source | head -n 1 | cut -d'/' -f 1))"
 

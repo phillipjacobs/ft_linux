@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pkg_source="util-linux-2.27.1.tar.xz"
+pkg_source="util-linux-2.30.1.tar.xz"
 
 pkg_name="$(basename $(tar -tf $1/$pkg_source | head -n 1 | cut -d'/' -f 1))"
 

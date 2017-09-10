@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pkg_source="make-4.1.tar.bz2"
+pkg_source="make-4.2.1.tar.bz2"
 
 pkg_name="$(basename $(tar -tf $1/$pkg_source | head -n 1 | cut -d'/' -f 1))"
 

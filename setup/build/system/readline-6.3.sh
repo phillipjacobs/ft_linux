@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pkg_source="readline-6.3.tar.gz"
+pkg_source="readline-7.0.tar.gz"
 
 pkg_name="$(basename $(tar -tf $1/$pkg_source | head -n 1 | cut -d'/' -f 1))"
 

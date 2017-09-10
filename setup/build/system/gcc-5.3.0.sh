@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pkg_source="gcc-5.3.0.tar.bz2"
+pkg_source="gcc-7.2.0.tar.xz"
 
 pkg_name="$(basename $(tar -tf $1/$pkg_source | head -n 1 | cut -d'/' -f 1))"
 

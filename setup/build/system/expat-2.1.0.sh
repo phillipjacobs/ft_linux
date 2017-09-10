@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pkg_source="expat-2.1.0.tar.gz"
+pkg_source="expat-2.2.4.tar.bz2"
 
 pkg_name="$(basename $(tar -tf $1/$pkg_source | head -n 1 | cut -d'/' -f 1))"
 

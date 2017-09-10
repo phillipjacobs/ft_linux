@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pkg_source="perl-5.22.1.tar.bz2"
+pkg_source="perl-5.26.0.tar.xz"
 
 pkg_name="$(basename $(tar -tf $1/$pkg_source | head -n 1 | cut -d'/' -f 1))"
 

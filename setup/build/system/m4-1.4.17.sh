@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pkg_source="m4-1.4.17.tar.xz"
+pkg_source="m4-1.4.18.tar.xz"
 
 pkg_name="$(basename $(tar -tf $1/$pkg_source | head -n 1 | cut -d'/' -f 1))"
 

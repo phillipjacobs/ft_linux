@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pkg_source="mpfr-3.1.3.tar.xz"
+pkg_source="mpfr-3.1.5.tar.xz"
 
 pkg_name="$(basename $(tar -tf $1/$pkg_source | head -n 1 | cut -d'/' -f 1))"
 

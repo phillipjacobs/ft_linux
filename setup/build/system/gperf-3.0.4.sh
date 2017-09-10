@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pkg_source="gperf-3.0.4.tar.gz"
+pkg_source="gperf-3.1.tar.gz"
 
 pkg_name="$(basename $(tar -tf $1/$pkg_source | head -n 1 | cut -d'/' -f 1))"
 

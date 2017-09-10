@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pkg_source="gzip-1.6.tar.xz"
+pkg_source="gzip-1.8.tar.xz"
 
 pkg_name="$(basename $(tar -tf $1/$pkg_source | head -n 1 | cut -d'/' -f 1))"
 

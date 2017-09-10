@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pkg_source="shadow-4.2.1.tar.xz"
+pkg_source="shadow-4.5.tar.xz"
 
 pkg_name="$(basename $(tar -tf $1/$pkg_source | head -n 1 | cut -d'/' -f 1))"
 

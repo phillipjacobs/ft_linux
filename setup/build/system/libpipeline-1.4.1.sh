@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pkg_source="libpipeline-1.4.1.tar.gz"
+pkg_source="libpipeline-1.4.2.tar.gz"
 
 pkg_name="$(basename $(tar -tf $1/$pkg_source | head -n 1 | cut -d'/' -f 1))"
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pkg_source="vim-7.4.tar.bz2"
+pkg_source="vim-8.0.586.tar.bz2"
 
 pkg_name="$(basename $(tar -tf $1/$pkg_source | head -n 1 | cut -d'/' -f 1))"
 

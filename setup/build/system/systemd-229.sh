@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pkg_source="systemd-229.tar.xz"
+pkg_source="systemd-234-lfs.tar.xz"
 
 pkg_name="$(basename $(tar -tf $1/$pkg_source | head -n 1 | cut -d'/' -f 1))"
 

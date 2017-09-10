@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pkg_source="less-481.tar.gz"
+pkg_source="less-487.tar.gz"
 
 pkg_name="$(basename $(tar -tf $1/$pkg_source | head -n 1 | cut -d'/' -f 1))"
 

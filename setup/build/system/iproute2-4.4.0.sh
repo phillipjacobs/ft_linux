@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pkg_source="iproute2-4.4.0.tar.xz"
+pkg_source="iproute2-4.12.0.tar.xz"
 
 pkg_name="$(basename $(tar -tf $1/$pkg_source | head -n 1 | cut -d'/' -f 1))"
 

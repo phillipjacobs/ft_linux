@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pkg_source="dbus-1.10.6.tar.gz"
+pkg_source="dbus-1.10.22.tar.gz"
 
 pkg_name="$(basename $(tar -tf $1/$pkg_source | head -n 1 | cut -d'/' -f 1))"
 

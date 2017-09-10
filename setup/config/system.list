@@ -3,7 +3,7 @@ man_pages-4.04
 glibc-2.23
 zlib-1.2.8
 file-5.25
-binutils-2.26
+binutils-2.29
 gmp-6.1.0
 mpfr-3.1.3
 mpc-1.0.3
@@ -24,7 +24,7 @@ flex-2.6.0
 grep-2.23
 readline-6.3
 bash-4.3.30
-bc-1.06.95
+bc-1.07.1
 libtool-2.4.6
 gdbm-1.11
 gperf-3.0.4

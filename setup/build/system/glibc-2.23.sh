@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pkg_source="glibc-2.23.tar.xz"
+pkg_source="glibc-2.26.tar.xz"
 
 pkg_name="$(basename $(tar -tf $1/$pkg_source | head -n 1 | cut -d'/' -f 1))"
 
