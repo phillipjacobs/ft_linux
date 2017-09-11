@@ -10,19 +10,20 @@ log_file=$2"/"$(echo $pkg_name)".log"
 status=0
 
 setup(){
-	cd $base_dir						|| return
-	tar -xf $pkg_source					|| return
-	cd $pkg_name						|| return
+	cd $base_dir							|| return
+	tar -xf $pkg_source						|| return
+	cd $pkg_name							|| return
 }
 
 build(){
-	./configure --prefix=/tools			\
-		--without-python				\
-		--disable-makeinstall-chown		\
-		--without-systemdsystemunitdir	\
-		PKG_CONFIG=""					|| return
-	make								|| return
-	make install						|| return
+	./configure --prefix=/tools            \
+            --without-python               \
+            --disable-makeinstall-chown    \
+            --without-systemdsystemunitdir \
+            --without-ncurses              \
+            PKG_CONFIG=""					|| return
+            make							|| return
+            make install					|| return
 }
 
 teardown(){
