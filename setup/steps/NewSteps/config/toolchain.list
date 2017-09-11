@@ -1,4 +1,6 @@
-linux_api_headers-4.12.7
+binutils_pass_1-2.29
+gcc_pass_1-7.2.0
+linux_api_headers-4.12.10
 glibc-2.26
 libstdc++-7.2.0
 binutils_pass_2-2.29
@@ -9,7 +11,6 @@ dejagnu-1.6
 check-0.11.0
 ncurses-6.0
 bash-4.4
-bison-3.0.4
 bzip2-1.0.6
 coreutils-8.28
 diffutils-3.6
