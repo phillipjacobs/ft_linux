@@ -1,3 +1,4 @@
-pushd $LFS/sources
-md5sum -c md5sums
-popd
+# First copy the md5sums file you were suppose to download
+# in the $LFS/sources folder
+
+pushd $LFS/sources && md5sum -c md5sums && popd

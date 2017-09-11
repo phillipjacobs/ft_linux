@@ -15,3 +15,5 @@ mkdir -v $LFS/tools					|| exit 1
 # The next step is to create a /tools symlink on the host system.
 # This will point to the newly-created directory on the LFS partition.
 ln -sv $LFS/tools /					|| exit 1
+
+printf "\033[32m[ {✓}SUCCESS ]\033[0m\n"
