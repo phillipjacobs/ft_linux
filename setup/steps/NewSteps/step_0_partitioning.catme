@@ -1,0 +1,6 @@
+# LFS assumes that the root file system (/) is of type ext4. To create an 
+# ext4 file system on the LFS partition, run the following:
+mkfs -v -t ext4 /dev/<xxx>
+
+# Make swap partition
+mkswap /dev/<yyy>
