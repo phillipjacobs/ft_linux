@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pkg_source="file-5.32.tar.gz"
+pkg_source="file-5.31.tar.gz"
 
 pkg_name="$(basename $(tar -tf $1/$pkg_source | head -n 1 | cut -d'/' -f 1))"
 
