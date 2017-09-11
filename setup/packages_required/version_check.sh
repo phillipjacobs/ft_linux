@@ -1,19 +1,9 @@
 #!/bin/bash
-
-C_RED="printf \033[0;31m"
-C_GREEN="printf \033[0;32m"
-C_STOP="printf \033[0m"
-
 # Simple script to list version numbers of critical development tools
 export LC_ALL=C
 bash --version | head -n1 | cut -d" " -f2-4
-
 MYSH=$(readlink -f /bin/sh)
-
-$C_GREEN
-printf "/bin/sh -> $MYSH\n\n"
-$C_STOP
-
+echo "/bin/sh -> $MYSH"
 echo $MYSH | grep -q bash || echo "ERROR: /bin/sh does not point to bash"
 unset MYSH
 echo -n "Binutils: "; ld --version | head -n1 | cut -d" " -f3-
@@ -23,7 +13,7 @@ if [ -h /usr/bin/yacc ]; then
 elif [ -x /usr/bin/yacc ]; then
   echo yacc is `/usr/bin/yacc --version | head -n1`
 else
-  printf "yacc not found" 
+  echo "yacc not found" 
 fi
 bzip2 --version 2>&1 < /dev/null | head -n1 | cut -d" " -f1,6-
 echo -n "Coreutils: "; chown --version | head -n1 | cut -d")" -f2
@@ -35,9 +25,8 @@ if [ -h /usr/bin/awk ]; then
 elif [ -x /usr/bin/awk ]; then
   echo awk is `/usr/bin/awk --version | head -n1`
 else 
-  printf "awk not found" 
+  echo "awk not found" 
 fi
-
 
 gcc --version | head -n1
 g++ --version | head -n1
@@ -51,17 +40,11 @@ patch --version | head -n1
 echo Perl `perl -V:version`
 sed --version | head -n1
 tar --version | head -n1
-# makeinfo --version | head -n1
+makeinfo --version | head -n1
 xz --version | head -n1
-
 
 echo 'int main(){}' > dummy.c && g++ -o dummy dummy.c
 if [ -x dummy ]
-  then
-  	$C_GREEN;
-  	printf "\ng++ compilation OK\n";
-  else
-  	printf "\ng++ compilation failed\n";
-fi
+  then echo "g++ compilation OK";
+  else echo "g++ compilation failed"; fi
 rm -f dummy.c dummy
-$C_STOP
