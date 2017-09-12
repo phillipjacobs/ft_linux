@@ -24,10 +24,12 @@ build(){
 		--with-zlib													|| return
 	make															|| return
 	make install													|| return
+
 	for target in depmod insmod lsmod modinfo modprobe rmmod; do
-		ln -sv ../bin/kmod /sbin/$target							|| return
+		ln -sfv ../bin/kmod /sbin/$target							|| return
 	done
-	ln -sv kmod /bin/lsmod											|| return
+
+	ln -sfv kmod /bin/lsmod											|| return
 }
 
 teardown(){
