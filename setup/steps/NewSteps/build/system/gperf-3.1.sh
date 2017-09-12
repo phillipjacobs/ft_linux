@@ -16,7 +16,7 @@ setup(){
 }
 
 build(){
-	./configure --prefix=/usr --docdir=/usr/share/doc/gperf-3.0.4	|| return
+	./configure --prefix=/usr --docdir=/usr/share/doc/gperf-3.1		|| return
 	make															|| return
 	make install													|| return
 }

@@ -11,3 +11,14 @@ psmisc-23.1
 iana_etc-2.30
 bison-3.0.4
 flex-2.6.4
+
+grep-3.1
+bash-4.4
+libtool-2.4.6
+gdbm-1.13
+gperf-3.1
+expat-2.2.3
+inetutils-1.9.4
+perl-5.26.0
+xml_parser-2.44
+intltool-0.51.0

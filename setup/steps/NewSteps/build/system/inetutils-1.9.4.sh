@@ -25,8 +25,10 @@ build(){
 		--disable-rlogin		\
 		--disable-rsh			\
 		--disable-servers									|| return
+
 	make													|| return
 	make install											|| return
+	
 	mv -v /usr/bin/{hostname,ping,ping6,traceroute} /bin	|| return
 	mv -v /usr/bin/ifconfig /sbin							|| return
 }

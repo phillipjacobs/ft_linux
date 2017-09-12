@@ -13,16 +13,21 @@ setup(){
 	cd $base_dir										|| return
 	tar -xf $pkg_source									|| return
 	cd $pkg_name										|| return
-	patch -Np1 -i ../bash-4.3.30-upstream_fixes-3.patch	|| return
+	patch -Np1 -i ../bash-4.4-upstream_fixes-1.patch	|| return
 }
 
 build(){
 	./configure --prefix=/usr				\
-		--docdir=/usr/share/doc/bash-4.3.30	\
+		--docdir=/usr/share/doc/bash-4.4	\
 		--without-bash-malloc				\
 		--with-installed-readline						|| return
 	make												|| return
+
+
+	chown -Rv nobody									|| return
+
 	make install										|| return
+	
 	mv -vf /usr/bin/bash /bin							|| return
 	exec /bin/bash --login +h							|| return
 }
