@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pkg_source="flex-2.6.4.tar.xz"
+pkg_source="flex-2.6.4.tar.gz"
 
 pkg_name="$(basename $(tar -tf $1/$pkg_source | head -n 1 | cut -d'/' -f 1))"
 
