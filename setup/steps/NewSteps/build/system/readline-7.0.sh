@@ -13,7 +13,6 @@ setup(){
 	cd $base_dir																	|| return
 	tar -xf $pkg_source																|| return
 	cd $pkg_name																	|| return
-	patch -Np1 -i ../readline-6.3-upstream_fixes-3.patch							|| return
 }
 
 build(){
