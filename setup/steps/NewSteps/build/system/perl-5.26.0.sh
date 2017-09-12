@@ -20,11 +20,12 @@ build(){
 	export BUILD_ZLIB=False								|| return
 	export BUILD_BZIP2=0								|| return
 	sh Configure -des -Dprefix=/usr		\
-		-Dvendorprefix=/usr				\
-		-Dman1dir=/usr/share/man/man1	\
-		-Dman3dir=/usr/share/man/man3	\
-		-Dpager="/usr/bin/less -isR"	\
-		-Duseshrplib									|| return
+		-Dvendorprefix=/usr           \
+		-Dman1dir=/usr/share/man/man1 \
+		-Dman3dir=/usr/share/man/man3 \
+		-Dpager="/usr/bin/less -isR"  \
+		-Duseshrplib                  \
+		-Dusethreads									|| return
 	make												|| return
 	make install										|| return
 	unset BUILD_ZLIB BUILD_BZIP2						|| return
