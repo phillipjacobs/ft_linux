@@ -29,11 +29,12 @@ bash-4.4
 libtool-2.4.6
 gdbm-1.13
 gperf-3.1
-expat-2.2.4
+expat-2.2.3
 inetutils-1.9.4
 perl-5.26.0
 xml_parser-2.44
 intltool-0.51.0
+
 autoconf-2.69
 automake-1.15.1
 xz-5.2.3

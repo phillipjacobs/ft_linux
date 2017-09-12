@@ -41,21 +41,21 @@ build(){
 
 	make install											|| return
 	# Create a symlink required by the FHS for "historical" reasons
-	ln -sv ../usr/bin/cpp /lib								|| return
+	ln -sv ../usr/bin/cpp /lib								|| continue
 
 	# Many packages use the name cc to call the C compiler.
 	# To satisfy those packages, create a symlink:
 	# ln -sv gcc /usr/bin/cc
-	ln -sv gcc /usr/bin/cc
+	ln -sv gcc /usr/bin/cc									|| continue
 
 	# Add a compatibility symlink to enable building programs
 	# with Link Time Optimization (LTO):
 	install -v -dm755 /usr/lib/bfd-plugins					|| return
 	ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/7.2.0/liblto_plugin.so \
-        /usr/lib/bfd-plugins/								|| return
+        /usr/lib/bfd-plugins/								|| continue
 
     # Finally, move a misplaced file:
-	mkdir -pv /usr/share/gdb/auto-load/usr/lib				|| return
+	mkdir -pv /usr/share/gdb/auto-load/usr/lib				|| continue
 	mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib || return
 }
 
