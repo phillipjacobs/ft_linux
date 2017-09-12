@@ -3,10 +3,10 @@
 # user enable to run script :: root
 
 if [ "$(echo $LFS)" = "" ]; then
-	printf "\033[31m[ {✗}ERROR  ] LFS variable not present. Check step 1\033[0m\n"
+	printf "\033[31m[ { ✗ }ERROR  ] LFS variable not present. Check step 1\033[0m\n"
 	exit 1
 else
-	printf "\033[32m[ {✓}SUCCESS ] LFS variable was set successfully\033[0m\n"
+	printf "\033[32m[ { ✓ }SUCCESS ] LFS variable was set successfully\033[0m\n"
 fi 
 
 # Various file systems exported by the kernel are used to communicate
@@ -17,7 +17,7 @@ fi
 
 # Begin by creating directories onto which the file systems will be
 # mounted:
-mkdir -pv $LFS/{dev,proc,sys,run}
+mkdir -pv $LFS/{dev,proc,sys,run}							|| return
 
 
 # Creating Initial Device Nodes
@@ -28,27 +28,27 @@ mkdir -pv $LFS/{dev,proc,sys,run}
 # are available before udevd has been started, and additionally when
 # Linux is started with  init=/bin/bash.
 # Create the devices by running the following commands:
-mknod -m 600 $LFS/dev/console c 5 1
-mknod -m 666 $LFS/dev/null c 1 3
+mknod -m 600 $LFS/dev/console c 5 1							|| return
+mknod -m 666 $LFS/dev/null c 1 3							|| return
 
 # Mounting and Populating /dev
 
 # bind mount is a special type of mount that allows you to create a
 # mirror of a directory or mount point to some other location.
 # Use the following command to achieve this:
-mount -v --bind /dev $LFS/dev
+mount -v --bind /dev $LFS/dev								|| return
 
 # Mounting Virtual Kernel File Systems
-mount -vt devpts devpts $LFS/dev/pts -o gid=5,mode=620
-mount -vt proc proc $LFS/proc
-mount -vt sysfs sysfs $LFS/sys
-mount -vt tmpfs tmpfs $LFS/run
+mount -vt devpts devpts $LFS/dev/pts -o gid=5,mode=620		|| return
+mount -vt proc proc $LFS/proc								|| return
+mount -vt sysfs sysfs $LFS/sys								|| return
+mount -vt tmpfs tmpfs $LFS/run								|| return
 
 # In some host systems, /dev/shm is a symbolic link to /run/shm.
 # The /run tmpfs was mounted above so in this case only, a directory
 # needs to be created.
 if [ -h $LFS/dev/shm ]; then
-  mkdir -pv $LFS/$(readlink $LFS/dev/shm)
+  mkdir -pv $LFS/$(readlink $LFS/dev/shm)					|| return
 fi
 
 
