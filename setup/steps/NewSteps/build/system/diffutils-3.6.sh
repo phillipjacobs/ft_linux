@@ -16,7 +16,6 @@ setup(){
 }
 
 build(){
-	sed -i 's:= @mkdir_p@:= /bin/mkdir -p:' po/Makefile.in.in	|| return
 	./configure --prefix=/usr									|| return
 	make														|| return
 	make install												|| return

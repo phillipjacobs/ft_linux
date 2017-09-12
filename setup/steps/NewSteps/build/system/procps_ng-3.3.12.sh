@@ -19,11 +19,17 @@ build(){
 	./configure --prefix=/usr						\
 		--exec-prefix=								\
 		--libdir=/usr/lib							\
-		--docdir=/usr/share/doc/procps-ng-3.3.11	\
+		--docdir=/usr/share/doc/procps-ng-3.3.12	\
 		--disable-static							\
-		--disable-kill								\
-		--with-systemd															|| return
+		--disable-kill									|| return
 	make																		|| return
+	
+	sed -i -r 's|(pmap_initname)\\\$|\1|' testsuite/pmap.test/pmap.exp
+	sed -i '/set tty/d' testsuite/pkill.test/pkill.exp
+	rm testsuite/pgrep.test/pgrep.exp
+
+
+
 	make install																|| return
 	mv -v /usr/lib/libprocps.so.* /lib											|| return
 	ln -sfv ../../lib/$(readlink /usr/lib/libprocps.so) /usr/lib/libprocps.so	|| return

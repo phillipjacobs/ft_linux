@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pkg_source="e2fsprogs-1.43.6.tar.gz"
+pkg_source="e2fsprogs-1.43.5.tar.gz"
 
 pkg_name="$(basename $(tar -tf $1/$pkg_source | head -n 1 | cut -d'/' -f 1))"
 
@@ -18,21 +18,24 @@ setup(){
 }
 
 build(){
-	LIBS=-L/tools/lib							\
-		CFLAGS=-I/tools/include					\
-		PKG_CONFIG_PATH=/tools/lib/pkgconfig	\
-		../configure --prefix=/usr				\
-		--bindir=/bin							\
-		--with-root-prefix=""					\
-		--enable-elf-shlibs						\
-		--disable-libblkid						\
-		--disable-libuuid						\
-		--disable-uuidd							\
-		--disable-fsck															|| return
-	make																		|| return
+	LIBS=-L/tools/lib                    \
+	CFLAGS=-I/tools/include              \
+	PKG_CONFIG_PATH=/tools/lib/pkgconfig \
+	../configure --prefix=/usr           \
+		--bindir=/bin           \
+		--with-root-prefix=""   \
+		--enable-elf-shlibs     \
+		--disable-libblkid      \
+		--disable-libuuid       \
+		--disable-uuidd         \
+		--disable-fsck										|| return
+	make													|| return
 	ln -sfv /tools/lib/lib{blk,uu}id.so.1 lib									|| return
+	make LD_LIBRARY_PATH=/tools/lib check
+
 	make install																|| return
 	make install-libs															|| return
+	
 	chmod -v u+w /usr/lib/{libcom_err,libe2p,libext2fs,libss}.a					|| return
 	gunzip -v /usr/share/info/libext2fs.info.gz									|| return
 	install-info --dir-file=/usr/share/info/dir /usr/share/info/libext2fs.info	|| return
