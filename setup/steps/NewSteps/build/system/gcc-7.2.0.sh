@@ -38,10 +38,8 @@ build(){
 		--with-system-zlib									|| return
 	make													|| return
 
-	# Test
-	ulimit -s 32768
-	make -k check
 
+	make install											|| return
 	# Create a symlink required by the FHS for "historical" reasons
 	ln -sv ../usr/bin/cpp /lib								|| return
 
