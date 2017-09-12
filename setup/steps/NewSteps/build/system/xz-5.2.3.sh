@@ -16,14 +16,12 @@ setup(){
 }
 
 build(){
-	sed -e '/mf\.buffer = NULL/a next->coder->mf.size = 0;'	\
-		-i src/liblzma/lz/lz_encoder.c										|| return
 	./configure --prefix=/usr	\
 		--disable-static		\
-		--docdir=/usr/share/doc/xz-5.2.2									|| return
+		--docdir=/usr/share/doc/xz-5.2.3									|| return
 	make																	|| return
 	make install															|| return
-	mv -v   /usr/bin/{lzma,unlzma,lzcat,xz,unxz,xzcat} /bin					|| return
+	mv -v /usr/bin/{lzma,unlzma,lzcat,xz,unxz,xzcat} /bin					|| return
 	mv -v /usr/lib/liblzma.so.* /lib										|| return
 	ln -svf ../../lib/$(readlink /usr/lib/liblzma.so) /usr/lib/liblzma.so	|| return
 }

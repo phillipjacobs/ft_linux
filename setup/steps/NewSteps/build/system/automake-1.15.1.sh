@@ -10,16 +10,17 @@ log_file=$2"/"$(echo $pkg_name)".log"
 status=0
 
 setup(){
-	cd $base_dir													|| return
-	tar -xf $pkg_source												|| return
-	cd $pkg_name													|| return
+	cd $base_dir														|| return
+	tar -xf $pkg_source													|| return
+	cd $pkg_name														|| return
 }
 
 build(){
-	sed -i 's:/\\\${:/\\\$\\{:' bin/automake.in						|| return
-	./configure --prefix=/usr --docdir=/usr/share/doc/automake-1.15	|| return
-	make															|| return
-	make install													|| return
+	sed -i 's:/\\\${:/\\\$\\{:' bin/automake.in							|| return
+	./configure --prefix=/usr --docdir=/usr/share/doc/automake-1.15.1	|| return
+	make																|| return
+	sed -i "s:./configure:LEXLIB=/usr/lib/libfl.a &:" t/lex-{clean,depend}-cxx.sh	|| return
+	make install														|| return
 }
 
 teardown(){
