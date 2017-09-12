@@ -16,11 +16,12 @@ setup(){
 }
 
 build(){
-	./configure --prefix=/usr	\
-		--with-internal-glib	\
-		--disable-host-tool		\
-		--docdir=/usr/share/doc/pkg-config-0.29			|| return
+	./configure --prefix=/usr			\
+		--with-internal-glib			\
+		--disable-host-tool				\
+		--docdir=/usr/share/doc/pkg-config-0.29.2		|| return
 	make												|| return
+	make check
 	make install										|| return
 }
 

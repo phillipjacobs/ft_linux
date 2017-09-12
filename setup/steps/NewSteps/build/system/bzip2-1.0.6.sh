@@ -13,16 +13,29 @@ setup(){
 	cd $base_dir											|| return
 	tar -xf $pkg_source										|| return
 	cd $pkg_name											|| return
+	 # a patch that install the documentation for you
 	patch -Np1 -i ../bzip2-1.0.6-install_docs-1.patch		|| return
 }
 
 build(){
+
+
+	# The following command ensures installation of
+	# symbolic links are relative:
 	sed -i 's@\(ln -s -f \)$(PREFIX)/bin/@\1@' Makefile		|| return
+
+	# Ensure the man pages are installed into the
+	# correct location
 	sed -i "s@(PREFIX)/man@(PREFIX)/share/man@g" Makefile	|| return
+	
 	make -f Makefile-libbz2_so								|| return
 	make clean												|| return
 	make													|| return
 	make PREFIX=/usr install								|| return
+	
+	# Install the shared  bzip2 binary into the /bin
+	# directory, make some necessary symbolic links,
+	# and clean up
 	cp -v bzip2-shared /bin/bzip2							|| return
 	cp -av libbz2.so* /lib									|| return
 	ln -sv ../../lib/libbz2.so.1.0 /usr/lib/libbz2.so		|| return

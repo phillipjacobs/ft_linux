@@ -24,19 +24,30 @@ build(){
 		--without-normal		\
 		--enable-pc-files		\
 		--enable-widec											|| return
+	
 	make														|| return
 	make install												|| return
+
 	mv -v /usr/lib/libncursesw.so.6* /lib						|| return
-	ln -sfv ../../lib/$(readlink /usr/lib/libncursesw.so)	\
-	   	/usr/lib/libncursesw.so									|| return
+
+	# Because the libraries have been moved, one symlink
+	# points to a non-existent file. Recreate it
+	ln -sfv ../../lib/$(readlink /usr/lib/libncursesw.so) \
+	/usr/lib/libncursesw.so 									|| return
+
 	for lib in ncurses form panel menu ; do
 		rm -vf                    /usr/lib/lib${lib}.so			|| return
 		echo "INPUT(-l${lib}w)" > /usr/lib/lib${lib}.so			|| return
 		ln -sfv ${lib}w.pc        /usr/lib/pkgconfig/${lib}.pc	|| return
 	done
-	rm -vf /usr/lib/libcursesw.so								|| return
+
+	# Finally, make sure that old applications that look for
+	# -lcurses at build time are still buildable:
+	rm -vf                     /usr/lib/libcursesw.so			|| return
 	echo "INPUT(-lncursesw)" > /usr/lib/libcursesw.so			|| return
-	ln -sfv libncurses.so /usr/lib/libcurses.so					|| return
+	ln -sfv libncurses.so      /usr/lib/libcurses.so			|| return
+
+	# Install ncurses documentation
 	mkdir -v /usr/share/doc/ncurses-6.0							|| return
 	cp -v -R doc/* /usr/share/doc/ncurses-6.0					|| return
 }
