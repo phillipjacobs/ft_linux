@@ -24,7 +24,7 @@ build(){
 	make												|| return
 
 
-	chown -Rv nobody									|| return
+	chown -Rv nobody .									|| return
 
 	make install										|| return
 	

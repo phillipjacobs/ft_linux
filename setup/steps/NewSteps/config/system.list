@@ -1,5 +1,3 @@
-flex-2.6.4
-grep-3.1
 bash-4.4
 libtool-2.4.6
 gdbm-1.13
@@ -9,3 +7,13 @@ inetutils-1.9.4
 perl-5.26.0
 xml_parser-2.44
 intltool-0.51.0
+autoconf-2.69
+automake-1.15.1
+xz-5.2.3
+kmod-24
+gettext-0.19.8.1
+systemd-234-lfs
+procps_ng-3.3.12
+e2fsprogs-1.43.6
+coreutils-8.28
+diffutils-3.6
