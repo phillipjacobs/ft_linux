@@ -13,17 +13,17 @@ fi
 # In order to satisfy these programs, create a number of symbolic links
 # which will be replaced by real files throughout the course of this
 # chapter after the software has been installed:
-ln -sv /tools/bin/{bash,cat,dd,echo,ln,pwd,rm,stty} /bin
-ln -sv /tools/bin/{install,perl} /usr/bin
-ln -sv /tools/lib/libgcc_s.so{,.1} /usr/lib
-ln -sv /tools/lib/libstdc++.{a,so{,.6}} /usr/lib
-sed 's/tools/usr/' /tools/lib/libstdc++.la > /usr/lib/libstdc++.la
-ln -sv bash /bin/sh
+ln -sv /tools/bin/{bash,cat,dd,echo,ln,pwd,rm,stty} /bin					|| exit 1
+ln -sv /tools/bin/{install,perl} /usr/bin									|| exit 1
+ln -sv /tools/lib/libgcc_s.so{,.1} /usr/lib									|| exit 1
+ln -sv /tools/lib/libstdc++.{a,so{,.6}} /usr/lib							|| exit 1
+sed 's/tools/usr/' /tools/lib/libstdc++.la > /usr/lib/libstdc++.la			|| exit 1
+ln -sv bash /bin/sh															|| exit 1
 
 
 # To satisfy utilities that expect the presence of /etc/mtab,
 # create the following symbolic link
-ln -sv /proc/self/mounts /etc/mtab
+ln -sv /proc/self/mounts /etc/mtab											|| exit 1
 
 # In order for user root to be able to login and for the name “root”
 # to be recognized, there must be relevant entries in the /etc/passwd
@@ -37,7 +37,7 @@ bin:x:1:1:bin:/dev/null:/bin/false
 daemon:x:6:6:Daemon User:/dev/null:/bin/false
 messagebus:x:18:18:D-Bus Message Daemon User:/var/run/dbus:/bin/false
 nobody:x:99:99:Unprivileged User:/dev/null:/bin/false
-" > /etc/passwd
+" > /etc/passwd																|| exit 1
 
 # The actual password for root (the “x” used here is just a
 # placeholder) will be set later
@@ -67,7 +67,7 @@ input:x:24:
 mail:x:34:
 nogroup:x:99:
 users:x:999:
-" > /etc/group
+" > /etc/group																|| exit 1
 
 # To remove the “I have no name!” prompt, start a new shell.
 # Since a full Glibc was installed in Chapter 5 and the /etc/passwd

@@ -17,7 +17,7 @@ fi
 
 # Begin by creating directories onto which the file systems will be
 # mounted:
-mkdir -pv $LFS/{dev,proc,sys,run}							|| return
+mkdir -pv $LFS/{dev,proc,sys,run}							|| exit 1
 
 
 # Creating Initial Device Nodes
@@ -28,27 +28,27 @@ mkdir -pv $LFS/{dev,proc,sys,run}							|| return
 # are available before udevd has been started, and additionally when
 # Linux is started with  init=/bin/bash.
 # Create the devices by running the following commands:
-mknod -m 600 $LFS/dev/console c 5 1							|| return
-mknod -m 666 $LFS/dev/null c 1 3							|| return
+mknod -m 600 $LFS/dev/console c 5 1							|| exit 1
+mknod -m 666 $LFS/dev/null c 1 3							|| exit 1
 
 # Mounting and Populating /dev
 
 # bind mount is a special type of mount that allows you to create a
 # mirror of a directory or mount point to some other location.
 # Use the following command to achieve this:
-mount -v --bind /dev $LFS/dev								|| return
+mount -v --bind /dev $LFS/dev								|| exit 1
 
 # Mounting Virtual Kernel File Systems
-mount -vt devpts devpts $LFS/dev/pts -o gid=5,mode=620		|| return
-mount -vt proc proc $LFS/proc								|| return
-mount -vt sysfs sysfs $LFS/sys								|| return
-mount -vt tmpfs tmpfs $LFS/run								|| return
+mount -vt devpts devpts $LFS/dev/pts -o gid=5,mode=620		|| exit 1
+mount -vt proc proc $LFS/proc								|| exit 1
+mount -vt sysfs sysfs $LFS/sys								|| exit 1
+mount -vt tmpfs tmpfs $LFS/run								|| exit 1
 
 # In some host systems, /dev/shm is a symbolic link to /run/shm.
 # The /run tmpfs was mounted above so in this case only, a directory
 # needs to be created.
 if [ -h $LFS/dev/shm ]; then
-  mkdir -pv $LFS/$(readlink $LFS/dev/shm)					|| return
+  mkdir -pv $LFS/$(readlink $LFS/dev/shm)					|| exit 1
 fi
 
 
