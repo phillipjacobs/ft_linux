@@ -16,7 +16,12 @@ setup(){
 }
 
 build(){
-	./configure --prefix=/usr --docdir=/usr/share/doc/flex-2.6.0	|| return
+
+	# fix a problem introduced with glibc-2.26
+	sed -i "/math.h/a #include <malloc.h>" src/flexdef.h			|| return
+
+	HELP2MAN=/tools/bin/true \
+	./configure --prefix=/usr --docdir=/usr/share/doc/flex-2.6.4	|| return
 	make															|| return
 	make install													|| return
 	ln -sv flex /usr/bin/lex										|| return
