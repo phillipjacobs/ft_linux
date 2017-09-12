@@ -21,6 +21,7 @@ build(){
 		--docdir=/usr/share/doc/mpc-1.0.3				|| return
 	make												|| return
 	make html											|| return
+	make check
 	make install										|| return
 	make install-html									|| return
 }

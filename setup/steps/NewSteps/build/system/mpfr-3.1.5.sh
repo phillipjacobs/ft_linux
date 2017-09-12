@@ -13,16 +13,16 @@ setup(){
 	cd $base_dir										|| return
 	tar -xf $pkg_source									|| return
 	cd $pkg_name										|| return
-	patch -Np1 -i ../mpfr-3.1.3-upstream_fixes-2.patch	|| return
 }
 
 build(){
 	./configure --prefix=/usr	\
 		--disable-static		\
 		--enable-thread-safe	\
-		--docdir=/usr/share/doc/mpfr-3.1.3				|| return
+		--docdir=/usr/share/doc/mpfr-3.1.5				|| return
 	make												|| return
 	make html											|| return
+	make check
 	make install										|| return
 	make install-html									|| return
 }

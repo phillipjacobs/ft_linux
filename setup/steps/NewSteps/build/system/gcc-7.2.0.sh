@@ -13,26 +13,52 @@ setup(){
 	cd $base_dir											|| return
 	tar -xf $pkg_source										|| return
 	cd $pkg_name											|| return
+
+	case $(uname -m) in
+	  x86_64)
+	    sed -e '/m64=/s/lib64/lib/' \
+	        -i.orig gcc/config/i386/t-linux64
+	  ;;
+	esac
+
+	rm -f /usr/lib/gcc										|| continue
+
 	mkdir -v build											|| return
 	cd       build											|| return
 }
 
 build(){
-	SED=sed							\
-		../configure --prefix=/usr	\
-		--enable-languages=c,c++	\
-		--disable-multilib			\
-		--disable-bootstrap			\
+
+
+	SED=sed								\
+	../configure --prefix=/usr			\
+		--enable-languages=c,c++		\
+		--disable-multilib       		\
+		--disable-bootstrap				\
 		--with-system-zlib									|| return
 	make													|| return
-	make install											|| return
+
+	# Test
+	ulimit -s 32768
+	make -k check
+
+	# Create a symlink required by the FHS for "historical" reasons
 	ln -sv ../usr/bin/cpp /lib								|| return
-	ln -sv gcc /usr/bin/cc									|| return
+
+	# Many packages use the name cc to call the C compiler.
+	# To satisfy those packages, create a symlink:
+	# ln -sv gcc /usr/bin/cc
+	ln -sv gcc /usr/bin/cc
+
+	# Add a compatibility symlink to enable building programs
+	# with Link Time Optimization (LTO):
 	install -v -dm755 /usr/lib/bfd-plugins					|| return
-	ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/5.3.0/liblto_plugin.so \
-		/usr/lib/bfd-plugins/								|| return
+	ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/7.2.0/liblto_plugin.so \
+        /usr/lib/bfd-plugins/								|| return
+
+    # Finally, move a misplaced file:
 	mkdir -pv /usr/share/gdb/auto-load/usr/lib				|| return
-	mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib	|| return
+	mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib || return
 }
 
 teardown(){
