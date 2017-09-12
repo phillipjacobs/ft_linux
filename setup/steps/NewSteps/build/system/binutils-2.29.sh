@@ -14,15 +14,18 @@ setup(){
 	tar -xf $pkg_source									|| return
 	cd $pkg_name										|| return
 	expect -c "spawn ls"								|| return
-	patch -Np1 -i ../binutils-2.26-upstream_fix-2.patch	|| return
 	mkdir -v build										|| return
 	cd       build										|| return
 }
 
 build(){
-	../configure --prefix=/usr	\
-		--enable-shared			\
-		--disable-werror								|| return
+	../configure --prefix=/usr       \
+             --enable-gold       \
+             --enable-ld=default \
+             --enable-plugins    \
+             --enable-shared     \
+             --disable-werror    \
+             --with-system-zlib							|| return
 	make tooldir=/usr									|| return
 	make tooldir=/usr install							|| return
 }
@@ -50,3 +53,4 @@ if [ $status -eq 0 ]; then
 fi
 
 exit $status
+

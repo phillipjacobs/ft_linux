@@ -2,7 +2,10 @@ linux_api_headers-4.12.7
 man_pages-4.12
 glibc-2.26
 zlib-1.2.11
-file-5.32
+file-5.31
+readline-7.0
+m4-1.4.18
+bc-1.07.1
 binutils-2.29
 gmp-6.1.2
 mpfr-3.1.5
@@ -18,13 +21,10 @@ sed-4.4
 shadow-4.5
 psmisc-23.1
 iana_etc-2.30
-m4-1.4.18
 bison-3.0.4
 flex-2.6.4
 grep-3.1
-readline-7.0
 bash-4.4
-bc-1.07.1
 libtool-2.4.6
 gdbm-1.13
 gperf-3.1

@@ -16,12 +16,13 @@ setup(){
 }
 
 build(){
-	./configure --prefix=/usr	\
-		--enable-cxx			\
-		--disable-static		\
-		--docdir=/usr/share/doc/gmp-6.1.0	|| return
+	./configure --prefix=/usr    \
+		--enable-cxx     \
+		--disable-static \
+		--docdir=/usr/share/doc/gmp-6.1.2	|| return
 	make									|| return
 	make html								|| return
+	make check 2>&1 | tee gmp-check-log
 	make install							|| return
 	make install-html						|| return
 }
