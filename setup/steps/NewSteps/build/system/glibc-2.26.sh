@@ -182,16 +182,16 @@ teardown(){
 	rm -rfv $pkg_name
 
 	# Adjusting the toolchain
-	mv -v /tools/bin/{ld,ld-old}											|| return
-	mv -v /tools/$(uname -m)-pc-linux-gnu/bin/{ld,ld-old}					|| return
-	mv -v /tools/bin/{ld-new,ld}											|| return
-	ln -sv /tools/bin/ld /tools/$(uname -m)-pc-linux-gnu/bin/ld				|| return
+	mv -v /tools/bin/{ld,ld-old}	
+	mv -v /tools/$(uname -m)-pc-linux-gnu/bin/{ld,ld-old}
+	mv -v /tools/bin/{ld-new,ld}
+	ln -sv /tools/bin/ld /tools/$(uname -m)-pc-linux-gnu/bin/ld
 
 
 	gcc -dumpspecs | sed -e 's@/tools@@g'                   \
 	    -e '/\*startfile_prefix_spec:/{n;s@.*@/usr/lib/ @}' \
 	    -e '/\*cpp:/{n;s@$@ -isystem /usr/include@}' >      \
-	    `dirname $(gcc --print-libgcc-file-name)`/specs						|| return
+	    `dirname $(gcc --print-libgcc-file-name)`/specs
 }
 
 # Internal process
