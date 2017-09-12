@@ -18,7 +18,7 @@ setup(){
 build(){
 	sed -i '/install.*STALIBNAME/d' libcap/Makefile						|| return
 	make																|| return
-	make RAISE_SETFCAP=no prefix=/usr install							|| return
+	make RAISE_SETFCAP=no lib=lib prefix=/usr install					|| return
 	chmod -v 755 /usr/lib/libcap.so										|| return
 	mv -v /usr/lib/libcap.so.* /lib										|| return
 	ln -sfv ../../lib/$(readlink /usr/lib/libcap.so) /usr/lib/libcap.so	|| return
