@@ -16,12 +16,15 @@ setup(){
 }
 
 build(){
+	sed -e '9751 a#ifndef PERL_IN_XSUB_RE' \
+    -e '9808 a#endif'         	         \
+    -i regexec.c
+
 	sh Configure -des -Dprefix=/tools -Dlibs=-lm	|| return
 	make											|| return
-	cp -v perl cpan/podlators/pod2man /tools/bin	|| return
-	mkdir -pv /tools/lib/perl5/5.22.1				|| return
-	cp -Rv lib/* /tools/lib/perl5/5.22.1			|| return
-}
+	cp -v perl cpan/podlators/scripts/pod2man /tools/bin || return
+	mkdir -pv /tools/lib/perl5/5.26.0 || return
+	cp -Rv lib/* /tools/lib/perl5/5.26.0 || return
 
 teardown(){
 	cd $base_dir

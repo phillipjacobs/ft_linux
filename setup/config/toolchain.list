@@ -11,9 +11,9 @@ ncurses-6.0
 bash-4.4
 bison-3.0.4
 bzip2-1.0.6
-coreutils-8.28
+coreutils-8.27
 diffutils-3.6
-file-5.32
+file-5.31
 findutils-4.6.0
 gawk-4.1.4
 gettext-0.19.8.1
