@@ -13,6 +13,7 @@ setup(){
 	cd $base_dir											|| return
 	tar -xf $pkg_source										|| return
 	cd $pkg_name											|| return
+	patch -Np1 -i ../inetutils-1.9-PATH_PROCNET_DEV.patch	|| return
 }
 
 build(){
@@ -27,6 +28,7 @@ build(){
 		--disable-servers									|| return
 
 	make													|| return
+	make check
 	make install											|| return
 	
 	mv -v /usr/bin/{hostname,ping,ping6,traceroute} /bin	|| return
