@@ -16,12 +16,19 @@ setup(){
 }
 
 build(){
+	# Modify the documentation directory so that it is a versioned directory
 	sed -i -e 's|/@pkg_name@|&-@pkg_version@|' include/builddefs.in			|| return
+
+	# Prevent installation of manual pages that were already installed
+	# by the man pages package
 	sed -i -e "/SUBDIRS/s|man[25]||g" man/Makefile							|| return
-	./configure --prefix=/usr --disable-static								|| return
+
+	./configure --prefix=/usr --bindir=/bin --disable-static				|| return
 	make																	|| return
+	
 	make install install-dev install-lib									|| return
 	chmod -v 755 /usr/lib/libattr.so										|| return
+	
 	mv -v /usr/lib/libattr.so.* /lib										|| return
 	ln -sfv ../../lib/$(readlink /usr/lib/libattr.so) /usr/lib/libattr.so	|| return
 }

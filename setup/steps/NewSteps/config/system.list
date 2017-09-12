@@ -2,3 +2,12 @@ gcc-7.2.0
 bzip2-1.0.6
 pkg_config-0.29.2
 ncurses-6.0
+attr-2.4.47
+acl-2.2.52
+libcap-2.25
+sed-4.4
+shadow-4.5
+psmisc-23.1
+iana_etc-2.30
+bison-3.0.4
+flex-2.6.4
