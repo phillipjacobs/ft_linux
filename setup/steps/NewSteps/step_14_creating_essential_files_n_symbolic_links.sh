@@ -73,5 +73,5 @@ users:x:999:
 # Since a full Glibc was installed in Chapter 5 and the /etc/passwd
 # and /etc/group files have been created, user name and group name
 # resolution will now work:
-printf "\033[32m[ {✓ }SUCCESS ] Now run : \033[34mexec /tools/bin/bash --login +h\033[0m\n"
+printf "\033[32m[ { ✓ }SUCCESS ] Now run : \033[34mexec /tools/bin/bash --login +h\033[0m\n"
 

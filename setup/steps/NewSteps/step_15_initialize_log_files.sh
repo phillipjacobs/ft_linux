@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# user enable to run script :: "root:/#""
+# user enable to run script :: "root:"
 
 if [ "$(echo $LFS)" = "" ]; then
 	printf "\033[31m[ { ✗ }ERROR  ] LFS variable not present. Check step 1\033[0m\n"

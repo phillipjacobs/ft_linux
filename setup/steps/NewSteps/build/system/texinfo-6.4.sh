@@ -35,7 +35,6 @@ teardown(){
 }
 
 # Internal process
-
 if [ $status -eq 0 ]; then
 	setup >> $log_file 2>&1
 	status=$?

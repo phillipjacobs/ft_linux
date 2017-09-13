@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# user enable to run script :: "root:""
+
 # directories and configuration files
 
 dir_system="./build/system"
