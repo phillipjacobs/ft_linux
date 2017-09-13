@@ -16,7 +16,7 @@ setup(){
 }
 
 build(){
-	../configure --prefix=/usr --disable-static				|| return
+	./configure --prefix=/usr --disable-static				|| return
 	make													|| return
 	make install											|| return
 	make TEXMF=/usr/share/texmf install-tex					|| return

@@ -1,5 +1,6 @@
 #!/bin/bash
 
+texinfo-6.4
 pkg_source="vim-8.0.586.tar.bz2"
 
 pkg_name="$(basename $(tar -tf $1/$pkg_source | head -n 1 | cut -d'/' -f 1))"
@@ -26,20 +27,15 @@ build(){
 	make														|| return
 	make install												|| return
 
-	ln -sv vim /usr/bin/vi										|| return
+	ln -sv vim /usr/bin/vi										|| continue
 	
 	for L in  /usr/share/man/{,*/}man1/vim.1; do
-		ln -sv vim.1 $(dirname $L)/vi.1							|| return
+		ln -sv vim.1 $(dirname $L)/vi.1							|| continue
 	done
 	
-	ln -sv ../vim/vim80/doc /usr/share/doc/vim-8.0.586			|| return
-}
+	ln -sv ../vim/vim80/doc /usr/share/doc/vim-8.0.586			|| continue
 
-teardown(){
-	cd $base_dir
-	rm -rfv $pkg_name
-
-	echo '
+		echo '
 set nocompatible
 set backspace=2
 set mouse=r
@@ -49,8 +45,16 @@ if (&term == "xterm") || (&term == "putty")
 endif
 	' > /etc/vimrc
 
+	printf "\033[36[m[ {✓}SUCCESS ] Now run : vim -c ':options' \033[0m\n"
+}
 
-	vim -c ':options'
+teardown(){
+	cd $base_dir
+	rm -rfv $pkg_name
+
+
+
+
 
 
 
