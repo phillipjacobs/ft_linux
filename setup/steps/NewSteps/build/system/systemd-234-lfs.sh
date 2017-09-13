@@ -14,7 +14,7 @@ setup(){
 	tar -xf $pkg_source												|| return
 	cd $pkg_name													|| return
 	sed -i "s:blkid/::" $(grep -rl "blkid/blkid.h")					|| return
-	patch -Np1 -i ../systemd-229-compat-1.patch						|| return
+	patch -Np1 -i ../systemd-234-compat-1.patch						|| return
 }
 
 build(){
@@ -41,7 +41,7 @@ XSLTPROC="/usr/bin/xsltproc"' > config.cache						|| return
 		--disable-ldconfig					\
 		--disable-sysusers					\
 		--without-python					\
-		--docdir=/usr/share/doc/systemd-229							|| return
+		--docdir=/usr/share/doc/systemd-234							|| return
 	make LIBRARY_PATH=/tools/lib									|| return
 	make LD_LIBRARY_PATH=/tools/lib install							|| return
 	mv -v /usr/lib/libnss_{myhostname,mymachines,resolve}.so.2 /lib	|| return

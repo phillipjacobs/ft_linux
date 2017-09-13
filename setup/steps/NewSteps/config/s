@@ -38,12 +38,10 @@ automake-1.15.1
 xz-5.2.3
 kmod-24
 gettext-0.19.8.1
-systemd-234-lfs
 procps_ng-3.3.12
 e2fsprogs-1.43.5
-coreutils-8.28
+coreutils-8.27
 diffutils-3.6
-
 gawk-4.1.4
 findutils-4.6.0
 groff-1.22.3
