@@ -21,7 +21,7 @@ build(){
 		--bindir=/bin										|| return
 	make													|| return
 	make install											|| return
-	make -C doc install-html docdir=/usr/share/doc/tar-1.28	|| return
+	make -C doc install-html docdir=/usr/share/doc/tar-1.29	|| return
 }
 
 teardown(){

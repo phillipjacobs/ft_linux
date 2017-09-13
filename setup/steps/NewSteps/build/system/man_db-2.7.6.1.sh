@@ -16,16 +16,17 @@ setup(){
 }
 
 build(){
-	./configure --prefix=/usr					\
-		--docdir=/usr/share/doc/man-db-2.7.5	\
-		--sysconfdir=/etc						\
-		--disable-setuid						\
-		--with-browser=/usr/bin/lynx			\
-		--with-vgrind=/usr/bin/vgrind			\
-		--with-grap=/usr/bin/grap									|| return
+	./configure --prefix=/usr                        \
+		--docdir=/usr/share/doc/man-db-2.7.6.1 \
+		--sysconfdir=/etc                    \
+		--disable-setuid                     \
+		--enable-cache-owner=bin             \
+		--with-browser=/usr/bin/lynx         \
+		--with-vgrind=/usr/bin/vgrind        \
+		--with-grap=/usr/bin/grap            \
+		--with-systemdtmpfilesdir=									|| return
 	make															|| return
 	make install													|| return
-	sed -i "s:man root:root root:g" /usr/lib/tmpfiles.d/man-db.conf	|| return
 }
 
 teardown(){

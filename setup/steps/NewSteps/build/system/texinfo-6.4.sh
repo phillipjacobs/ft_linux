@@ -10,22 +10,23 @@ log_file=$2"/"$(echo $pkg_name)".log"
 status=0
 
 setup(){
-	cd $base_dir							|| return
-	tar -xf $pkg_source						|| return
-	cd $pkg_name							|| return
+	cd $base_dir											|| return
+	tar -xf $pkg_source										|| return
+	cd $pkg_name											|| return
 }
 
 build(){
-	./configure --prefix=/usr				|| return
-	make									|| return
-	make install							|| return
-	make TEXMF=/usr/share/texmf install-tex	|| return
-	pushd /usr/share/info					|| return
-	rm -v dir								|| return
+	../configure --prefix=/usr --disable-static				|| return
+	make													|| return
+	make install											|| return
+	make TEXMF=/usr/share/texmf install-tex					|| return
+	
+	pushd /usr/share/info									|| return
+	rm -v dir												|| return
 	for f in *
-		do install-info $f dir 2>/dev/null	|| return
+		do install-info $f dir 2>/dev/null					|| return
 	done
-	popd									|| return
+	popd													|| return
 }
 
 teardown(){
