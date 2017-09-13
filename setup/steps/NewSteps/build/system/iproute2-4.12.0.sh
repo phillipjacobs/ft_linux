@@ -20,7 +20,7 @@ build(){
 	sed -i 's/arpd.8//' man/man8/Makefile				|| return
 	rm -v doc/arpd.sgml									|| return
 	make												|| return
-	make DOCDIR=/usr/share/doc/iproute2-4.4.0 install	|| return
+	make DOCDIR=/usr/share/doc/iproute2-4.12.0 install	|| return
 }
 
 teardown(){

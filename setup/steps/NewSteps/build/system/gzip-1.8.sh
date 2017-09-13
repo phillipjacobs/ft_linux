@@ -16,11 +16,12 @@ setup(){
 }
 
 build(){
-	./configure --prefix=/usr --bindir=/bin						|| return
+	./configure --prefix=/usr									|| return
 	make														|| return
 	make install												|| return
-	mv -v /bin/{gzexe,uncompress,zcmp,zdiff,zegrep} /usr/bin	|| return
-	mv -v /bin/{zfgrep,zforce,zgrep,zless,zmore,znew} /usr/bin	|| return
+	
+	# Move a program that needs to be on the root filesystem
+	mv -v /usr/bin/gzip /bin									|| return
 }
 
 teardown(){

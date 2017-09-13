@@ -13,7 +13,7 @@ setup(){
 	cd $base_dir																	|| return
 	tar -xf $pkg_source																|| return
 	cd $pkg_name																	|| return
-	patch -Np1 -i ../kbd-2.0.3-backspace-1.patch									|| return
+	patch -Np1 -i ../kbd-2.0.4-backspace-1.patch									|| return
 	sed -i 's/\(RESIZECONS_PROGS=\)yes/\1no/g' configure							|| return
 	sed -i 's/resizecons.8 //' docs/man/man8/Makefile.in							|| return
 }
@@ -22,8 +22,8 @@ build(){
 	PKG_CONFIG_PATH=/tools/lib/pkgconfig ./configure --prefix=/usr --disable-vlock	|| return
 	make																			|| return
 	make install																	|| return
-	mkdir -v /usr/share/doc/kbd-2.0.3												|| return
-	cp -R -v docs/doc/* /usr/share/doc/kbd-2.0.3									|| return
+	mkdir -v /usr/share/doc/kbd-2.0.4												|| return
+	cp -R -v docs/doc/* /usr/share/doc/kbd-2.0.4									|| return
 }
 
 teardown(){

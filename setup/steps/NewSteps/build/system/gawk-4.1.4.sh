@@ -19,8 +19,8 @@ build(){
 	./configure --prefix=/usr												|| return
 	make																	|| return
 	make install															|| return
-	mkdir -v /usr/share/doc/gawk-4.1.3										|| return
-	cp -v doc/{awkforai.txt,*.{eps,pdf,jpg}} /usr/share/doc/gawk-4.1.3		|| return
+	mkdir -v /usr/share/doc/gawk-4.1.4										|| return
+	cp -v doc/{awkforai.txt,*.{eps,pdf,jpg}} /usr/share/doc/gawk-4.1.4		|| return
 }
 
 teardown(){

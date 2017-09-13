@@ -19,7 +19,6 @@ build(){
 	./configure --prefix=/usr	\
 		--sbindir=/sbin			\
 		--sysconfdir=/etc		\
-		--disable-grub-emu-usb	\
 		--disable-efiemu		\
 		--disable-werror			|| return
 	make							|| return
