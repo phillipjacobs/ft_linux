@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Do Not Run This Puppy... Not fixed!!!
+
 # user enable to run script :: "root:"
 
 if [ "$(echo $LFS)" = "" ]; then
@@ -28,9 +30,11 @@ setup(){
 
 build(){
 	make mrproper							|| return
-	make menuconfig							|| return
-	make									|| return
-	make modules_install					|| return
+
+
+	# make menuconfig							|| return
+	# make									|| return
+	# make modules_install					|| return
 }
 
 # Internal process
