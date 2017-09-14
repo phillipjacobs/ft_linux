@@ -54,7 +54,7 @@ set bell-style none
 "\e[H": beginning-of-line
 "\e[F": end-of-line
 # End /etc/inputrc
-'
+' > /etc/inputrc
 
 # Creating the /etc/shells File
 echo "
@@ -63,6 +63,5 @@ echo "
 /bin/bash
 # End /etc/shells
 " > /etc/shells
-
 
 printf "\033[32m[ { ✓ }SUCCESS ] \033[0m\n"
