@@ -16,7 +16,7 @@ fi
 cd /etc/sysconfig/
 echo "
 ONBOOT=yes
-IFACE=eth0
+IFACE=enp0s3
 SERVICE=ipv4-static
 IP=192.168.1.2
 GATEWAY=192.168.1.1
@@ -27,7 +27,6 @@ BROADCAST=192.168.1.255
 # Creating the /etc/resolv.conf File
 echo "
 # Begin /etc/resolv.conf
-domain <Your Domain Name>
 nameserver 8.8.8.8
 nameserver 8.8.4.4
 # End /etc/resolv.conf
@@ -39,11 +38,6 @@ echo "phjacobs" > /etc/hostname
 echo "
 # Begin /etc/hosts
 127.0.0.1 localhost
-127.0.1.1 <FQDN> phjacobs
-192.168.1.1 phjacobs
-::1       localhost ip6-localhost ip6-loopback
-ff02::1   ip6-allnodes
-ff02::2   ip6-allrouters
 # End /etc/hosts
 " > /etc/hosts
 
