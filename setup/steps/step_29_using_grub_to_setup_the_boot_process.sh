@@ -16,7 +16,7 @@ grub-mkrescue --output=grub-img.iso
 xorriso -as cdrecord -v dev=/dev/cdrw blank=as_needed grub-img.iso
 
 # Install the GRUB files into /boot/grub and set up the boot track:
-grub-install /dev/sda
+grub-install /dev/sdb
 
 #  Creating the GRUB Configuration File
 
@@ -25,10 +25,10 @@ echo '
 set default=0
 set timeout=5
 insmod ext2
-set root=(hd0,2)
+set root=(hd0,3)
 menuentry "GNU/Linux, Linux 4.12.7-lfs-8.1" {
-        linux   /boot/vmlinuz-4.12.7-lfs-8.1 root=/dev/sda2 ro
+        linux   vmlinuz-4.12.7-lfs-8.1 root=/dev/sda1 ro
 }
 ' > /boot/grub/grub.cfg
 
-printf "\033[32m[ { ✓ }SUCCESS ] : Now run : echo 'The End Is coming'\033[0m\n"
+printf "\033[32m[ { ✓ }SUCCESS ] : Now run : echo 'The End Is coming'\033[0m\n"vmlin
