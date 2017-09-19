@@ -26,7 +26,7 @@ echo "
 # file system	mount-point	type		options				dump fsck
 #															order
 
-/dev/sdb1		/			ext4		defaults			1		1
+/dev/sdb2		/			ext4		defaults			1		1
 /dev/sdb4		swap		swap		pri=1				0		0
 /dev/sdb3		/boot		ext4		defaults			1		1
 proc			/proc		proc		nosuid,noexec,nodev 0		0
