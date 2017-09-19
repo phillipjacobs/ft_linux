@@ -10,7 +10,7 @@ else
 fi 
 
 mkdir -pv $LFS							|| exit 1
-mount -v -t ext4 /dev/sdb1 $LFS			|| exit 1
+mount -v -t ext4 /dev/sdb2 $LFS			|| exit 1
 
 mkdir -pv $LFS/boot						|| exit 1
 mount -v -t ext4 /dev/sdb3 $LFS/boot	|| exit 1
