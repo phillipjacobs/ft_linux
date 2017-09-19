@@ -43,9 +43,9 @@ build(){
 	install -d /usr/share/doc/linux-4.12.7						|| return
 	cp -r Documentation/* /usr/share/doc/linux-4.12.7			|| return
 
-
-	install -v -m755 -d /etc/modprobe.d							|| return
 	# Configuring Linux Module Load Order
+	install -v -m755 -d /etc/modprobe.d							|| return
+	
 	echo "
 # Begin /etc/modprobe.d/usb.conf
 install ohci_hcd /sbin/modprobe ehci_hcd ; /sbin/modprobe -i ohci_hcd ; true
