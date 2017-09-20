@@ -3,10 +3,10 @@
 # user enable to run script :: root
 
 if [ "$(echo $LFS)" = "" ]; then
-	printf "\033[31m[ {✗}ERROR  ] LFS variable not present. Check step 1\033[0m\n"
+	printf "\033[31m[ { ✗ }ERROR  ] LFS variable not present. Check step 1\033[0m\n"
 	exit 1
 else
-	printf "\033[32m[ {✓}SUCCESS ] LFS variable was set successfully\033[0m\n"
+	printf "\033[32m[ { ✓ }SUCCESS ] LFS variable was set successfully\033[0m\n"
 fi 
 
 mkdir -pv $LFS							|| exit 1
@@ -16,3 +16,12 @@ mkdir -pv $LFS/boot						|| exit 1
 mount -v -t ext4 /dev/sdb3 $LFS/boot	|| exit 1
 
 /sbin/swapon -v /dev/sdb4				|| exit 1
+
+
+# Tips:
+# 
+# run the command :
+# sudo fdisk -l
+#
+# If at the bottom it says that the pattitions are out of order
+# then do yourself a favor and google how to that line.

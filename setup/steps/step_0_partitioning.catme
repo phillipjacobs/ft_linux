@@ -4,3 +4,5 @@ mkfs -v -t ext4 /dev/<xxx>
 
 # Make swap partition
 mkswap /dev/<yyy>
+
+# Personally I used gparted. There is a few videos on youtube that'll teach you how to use it
