@@ -9,7 +9,6 @@ else
 	printf "\033[32m[ { ✓ }SUCCESS ] LFS variable was set successfully\033[0m\n"
 fi 
 
-
 pkg_source="linux-4.12.7.tar.xz"
 pkg_path="/sources/linux-4.12.7.tar.xz"
 

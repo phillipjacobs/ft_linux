@@ -26,7 +26,6 @@ setup(){
 }
 
 build(){
-	# make menuconfig						|| return
 	make									|| return
 	make modules_install					|| return
 
@@ -45,8 +44,7 @@ if [ $status -eq 0 ]; then
 fi
 
 if [ $status -eq 0 ]; then
-	printf "\033[32m[ { ✓ }SUCCESS ] : Now run : \
-mount --bind /boot /mnt/lfs/boot (in root of the host\033[0m\n"
+	printf "\033[32m[ { ✓ }SUCCESS ] \033[0m\n"
 else
 	printf "\033[31m[ { ✗ }ERROR ] \033[0m\n"
 fi
