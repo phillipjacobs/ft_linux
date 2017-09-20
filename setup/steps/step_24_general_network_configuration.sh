@@ -11,9 +11,10 @@ fi
 
 #  Creating Network Interface Configuration Files
 
-# The following command creates a sample file for the eth0
+# The following command creates a sample file for the enp0s3
 # device with a static IP address:
 cd /etc/sysconfig/
+
 echo "
 ONBOOT=yes
 IFACE=enp0s3
@@ -22,7 +23,7 @@ IP=192.168.1.2
 GATEWAY=192.168.1.1
 PREFIX=24
 BROADCAST=192.168.1.255
-" > ifconfig.eth0
+" > ifconfig.enp0s3
 
 # Creating the /etc/resolv.conf File
 echo "
@@ -37,7 +38,8 @@ echo "phjacobs" > /etc/hostname
 
 echo "
 # Begin /etc/hosts
-127.0.0.1 localhost
+127.0.0.1 <HOSTNAME.example.org> <HOSTNAME> localhost
+::1       localhost
 # End /etc/hosts
 " > /etc/hosts
 

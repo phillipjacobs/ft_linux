@@ -5,7 +5,6 @@ glibc-2.26
 libstdc++-7.2.0
 binutils_pass_2-2.29
 gcc_pass_2-7.2.0
-
 tcl_core-8.6.7
 expect-5.45
 dejagnu-1.6
