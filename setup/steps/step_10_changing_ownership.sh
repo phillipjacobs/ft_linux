@@ -11,5 +11,4 @@ fi
 
 # Change the ownership of the $LFS/tools directory to user root
 # by running the following command:
-
 chown -R root:root $LFS/tools
