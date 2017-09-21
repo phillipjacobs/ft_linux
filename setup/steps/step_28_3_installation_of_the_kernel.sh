@@ -27,7 +27,7 @@ setup(){
 
 build(){
 	#  The following command assumes an x86 architecture
-	cp -v arch/x86_64/boot/bzImage /boot/vmlinuz-4.12.7-lfs-8.1	|| return
+	cp -v arch/x86_64/boot/bzImage /boot/vmlinuz-4.12.7-lfs-8.1-phjacobs	|| return
 
 	# System.map is a symbol file for the kernel. It maps the function entry
 	# points of every function in the kernel API, as well as the addresses
@@ -57,7 +57,7 @@ install uhci_hcd /sbin/modprobe ehci_hcd ; /sbin/modprobe -i uhci_hcd ; true
 
 teardown(){
 	cd $base_dir
-	rm -rfv $pkg_name
+	# rm -rfv $pkg_name
 }
 
 # Internal process

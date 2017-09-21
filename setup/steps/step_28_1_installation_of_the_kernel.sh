@@ -41,7 +41,7 @@ if [ $status -eq 0 ]; then
 fi
 
 if [ $status -eq 0 ]; then
-	printf "\033[32m[ { ✓ }SUCCESS ] : Now run : \
+	printf "\033[32m[ { ✓ }SUCCESS ] : Now change to $pkg_name and run : \
 make menuconfig\033[0m\n"
 else
 	printf "\033[31m[ { ✗ }ERROR ] \033[0m\n"

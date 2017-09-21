@@ -11,9 +11,9 @@ fi
 
 #  Using GRUB to Set Up the Boot Process
 
-cd /tmp																|| exit 1
-grub-mkrescue --output=grub-img.iso									|| exit 1
-xorriso -as cdrecord -v dev=/dev/cdrw blank=as_needed grub-img.iso	|| exit 1
+# cd /tmp																|| exit 1
+# grub-mkrescue --output=grub-img.iso									|| exit 1
+# xorriso -as cdrecord -v dev=/dev/cdrw blank=as_needed grub-img.iso	|| exit 1
 
 # Install the GRUB files into /boot/grub and set up the boot track:
 grub-install /dev/sdb												|| exit 1
@@ -26,8 +26,8 @@ set default=0
 set timeout=5
 insmod ext2
 set root=(hd0,3)
-menuentry "GNU/Linux, Linux 4.12.7-lfs-8.1" {
-        linux   vmlinuz-4.12.7-lfs-8.1 root=/dev/sda1 ro
+menuentry "GNU/Linux, Linux 4.12.7-lfs-8.1-phjacobs" {
+        linux   /vmlinuz-4.12.7-lfs-8.1-phjacobs root=/dev/sda2 ro
 }
 ' > /boot/grub/grub.cfg												|| exit 1
 
