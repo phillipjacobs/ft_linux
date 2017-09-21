@@ -1,6 +1,6 @@
 #!/bin/bash
 
-texinfo-6.4
+# texinfo-6.4
 pkg_source="vim-8.0.586.tar.bz2"
 
 pkg_name="$(basename $(tar -tf $1/$pkg_source | head -n 1 | cut -d'/' -f 1))"
@@ -44,6 +44,8 @@ if (&term == "xterm") || (&term == "putty")
   set background=dark
 endif
 	' > /etc/vimrc
+
+	touch ~/.vimrc
 
 	printf "\033[36[m[ {✓}SUCCESS ] Now run : vim -c ':options' \033[0m\n"
 }
