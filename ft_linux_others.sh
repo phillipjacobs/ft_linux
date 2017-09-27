@@ -1,5 +1,6 @@
 #!/bin/sh
 
+
 function 	is_installed {
 	printf "Testing $1 ...";
 	RESULT=`whereis $1`
