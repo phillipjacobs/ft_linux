@@ -43,7 +43,7 @@ A step by step series of examples that tell you how to download run the project 
 ```
 5.  Click on storage and then delete whatever vdi you see there. (This will be the one you just created :(  )
 ```
-* [ft_linux-phjacobs.vdi](https://drive.google.com/open?id=0B-dDfTOAtmmTMHdwZG15QS1Fbkk)
+* [ft_linux-phjacobs.vdi](https://drive.google.com/file/d/0B-dDfTOAtmmTMHdwZG15QS1Fbkk/view?usp=sharing)
 ```
 6.  Download the ft_linux-phjacobs.vdi
   6.1  This is 12G. I know lol. Sorry :(
