@@ -146,7 +146,7 @@ A step by step series of examples that tell you how to build and run the project
 
 ## Authors
 
-* **Phillip Ronald Jacobs** - *Initial work (All my other 50 repos are private. I'll open them soon) * - [phjacobs7ag](https://github.com/phjacobs7AG)
+* **Phillip Ronald Jacobs** - [phjacobs7ag](https://github.com/phjacobs7AG)
 
 ## License
 
