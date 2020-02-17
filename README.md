@@ -140,17 +140,17 @@ A step by step series of examples that tell you how to build and run the project
 ## PLEEEEAAASE....
 * Try and read through the scripts before running them. It's really cool stuff.
 * Be smart and follow this book. Only from after you done with step 2. [LFS](http://www.linuxfromscratch.org/lfs/view/stable/chapter03/introduction.html)
-* Be cool and email me if you really stuck `phjacobs@student.42.fr || phjacobs@student.wethinkcode.co.za` 
+* Be cool and email me if you really stuck `phillip@softwarebureau.org || phillip@hearxgroup.com` 
 * Be even cooler and google a lot! Learn! Knowledge is the best drugs ever.
 * 
 
 ## Authors
 
-* **Phillip Ronald Jacobs** - [phjacobs7ag](https://github.com/phjacobs7AG)
+* **Phillip Ronald Jacobs** - [phillipjacobs](https://github.com/phillipjacobs)
 
 ## License
 
-This project is licensed under the GoWildAndShare License
+This project is licensed under the GoWildAndShare License...hahaha!
 
 ## Acknowledgments
 
