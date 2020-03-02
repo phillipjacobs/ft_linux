@@ -65,7 +65,7 @@ A step by step series of examples that tell you how to download run the project 
     10.1 😂 😂hahahahah I know. What a super secret password lol.
 ```
 
-### Build and Run (To rather download everything instead of building it, see 'Download and Run')
+### Build and Run (To rather download everything instead of building it, see '[Download and Run](https://github.com/phillipjacobs/ft_linux/blob/master/README.md#download-and-run-to-rather-build-everything-instead-of-downloading-12g-see-build-and-run)')
 
 A step by step series of examples that tell you how to build and run the project 🤓
 
