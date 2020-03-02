@@ -20,7 +20,7 @@ Download and install virtualbox
 ```
 
 
-### Download and Run (To rather build everything instead of downloading 12G, see 'Build and Run')
+### Download and Run (To rather build everything instead of downloading 12G, see '[Build and Run](https://github.com/phillipjacobs/ft_linux#build-and-run-to-rather-download-everything-instead-of-building-it-see-download-and-run)')
 
 A step by step series of examples that tell you how to download run the project 🤓
 
