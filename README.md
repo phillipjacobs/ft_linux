@@ -140,7 +140,7 @@ A step by step series of examples that tell you how to build and run the project
 ## PLEEEEAAASE....
 * Try and read through the scripts before running them. It's really cool stuff.
 * Be smart and follow this book. Only from after you done with step 2. [LFS](http://www.linuxfromscratch.org/lfs/view/stable/chapter03/introduction.html)
-* Be cool and email me if you really stuck `phillip@softwarebureau.org || phillip@hearxgroup.com` 
+* Be cool and email me if you really stuck `phillip@softwarebureau.org || phillip@softwarebureau.org || phillip@hearxgroup.com` 
 * Be even cooler and google a lot! Learn! Knowledge is the best drugs ever.
 * 
 
@@ -165,6 +165,6 @@ This project is licensed under the GoWildAndShare License...hahaha!
 * Thank You Granny, Thank You Grandpa... OuwkkyY this is getting emotional. Good luck lol.
 * And I really don't mind helping when you have a problem but try and google first.
 
-* phjacobs@student.42.fr || phjacobs@student.wethinkcode.co.za
+* phjacobs@student.42.fr || phjacobs@student.wethinkcode.co.za || phillip@softwarebureau.org || phillip@hearxgroup.com
 
 * Thank You 
